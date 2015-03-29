@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='webApp'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <!-- <script src="lib/ionic/js/ionic.bundle.js"></script> -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- this code will be uncomment after deploy on production -->
+     <link rel="stylesheet" href="css/application.min.css">
+     <script type="text/javascript" src="js/application.min.js"></script>
+  </head>
+  <body id="list deal-detail">
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+
+    <div class="loading-mask">
+      <img src="images/loading.gif">
+    </div>
+    <div ng-view="" class="page-view" ng-class="pageAnimationClass"></div>
+    <!-- 这个和home page 重复 需要重构 -->
+    <menu></menu>
+
+  </body>
+</html>

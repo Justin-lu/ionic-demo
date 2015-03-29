@@ -1,0 +1,79 @@
+<!-- 活动广告栏 -->
+<div class="swiper-container">
+  <div class="swiper-wrapper" ng-controller='homeSlideCtrl'>
+    <div class="swiper-slide" ng-repeat="slide in slides" init-slider>
+      <a href="{{slide.link}}">
+        <img ng-src="{{slide.url}}"/>
+      </a>
+    </div>
+  </div>
+  <div class="pagination"></div>
+</div>
+
+
+<!-- 类别栏（7七个优先显示大类+ 更多） -->
+<div class="daolist">
+  <div class="daolist-v">
+    <a ng-repeat= "category in categories" href="{{category.link}}">
+      <span class="pic">
+        <img ng-src="{{category.url}}"/>
+      </span>
+      <span class="tt">{{category.name}}</span>
+    </a>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<!-- 四大活动板块 -->
+<div class="rukou" ng-repeat='sale in sales'>
+    <a href="{{sale.link}}"><img ng-src= "{{sale.url}}" /></a>
+</div>
+<div class="clear"></div>
+
+<!-- 今日特价 -->
+<!-- <div class="tejia">
+  <p>今日特价</p>
+  <div class="tla">
+    <img class="pic" src="/images/huodong/inx_tl_tejia2.jpg" />
+  </div>
+  <div class="clear"></div>
+  <div class="list_tejia"></div>
+  <div class="clear"></div>
+</div>
+ -->
+<!-- 新品推荐 -->
+
+<div class="content_tt">
+  <!--蔬菜瓜果-->
+  <div ng-repeat = "categoryGood in categoryGoods">
+    <div class="cat-title">
+      <a href="{{categoryGood.link}}"><span class="hicon scgg"></span><span class="tt">{{categoryGood.name}}</span><span class="prev"></span></a>
+    </div>
+    <div class="pro_inx_list">
+      <a class="goods01" href="{{categoryGood.goods[0].link}}">
+      <span class="tc tc-big">
+        <span class="new"></span>
+        <span class="pic"><img ng-src="{{categoryGood.goods[0].url}}"/></span>
+        <span class="tls">{{categoryGood.goods[0].title}}</span>
+        <span class="desc">{{categoryGood.goods[0].introduce}}</span>
+      </span>
+      </a>
+      <a class="goods02" href="{{categoryGood.goods[1].link}}">
+        <span class="tc tc-small">
+          <span class="pic"><img ng-src="{{categoryGood.goods[1].url}}"/></span>
+          <span class="tls">{{categoryGood.goods[1].title}}</span>
+          <span class="desc">{{categoryGood.goods[1].introduce}}</span>
+        </span>
+      </a>
+      <a class="goods03" href="{{categoryGood.goods[2].link}}">
+        <span class="tc tc-small">
+          <span class="pic"><img ng-src="{{categoryGood.goods[2].url}}"/></span>
+          <span class="tls" style="color:#70b00e">{{categoryGood.goods[2].title}}</span>
+          <span class="desc">{{categoryGood.goods[2].introduce}}</span>
+        </span>
+      </a>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

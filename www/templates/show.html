@@ -1,0 +1,123 @@
+<div id="tips"></div>
+
+<div id="deal" class="deal">
+  <div class="list">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" ng-repeat="image in images" init-slider>
+          <img ng-src="{{image}}"/>
+        </div>
+      </div>
+      <div class="pagination"></div>
+    </div>
+
+    <dl class="list list-in">
+      <dd class="dd-padding buy-price">
+        <div class="price">
+          <strong class="J_pricetag strong-color">{{goodData.nowprice}}</strong><span class="strong-color">元</span>
+          <space>
+          </space>
+          <del>{{goodData.price}}元</del>
+        </div>
+        <a class="btn buy-btn btn-large btn-strong" href="javascript:;" ng-click='bugNow()'>立即购买</a>
+      </dd>
+      <dd class="dd-padding buy-desc">
+        <h1>{{goodData.title}}</h1>
+        <p class="explain">{{goodData.introduce}}</p>
+      </dd>
+      <dd class="dd-padding agreement">
+        <ul class="agree">
+          <li class="active"><i class="text-icon">◐</i>支持随时退款
+          <li class="active"><i class="text-icon">◑</i>支持过期退款
+          <li><i class="text-icon">◒</i>剩余3天以上
+          <li><i class="text-icon">◓</i>已售569
+        </ul>
+        <ul class="btn-line">
+          <li><a class="btn btn-weak btn-block" gaevent="imt/deal/share" data-com="share" data-share-text="" data-share-pic=""></i>分享</a>
+          <li><a class="js-fav-btn btn btn-weak btn-block" gaevent="imt/deal/fav"><i class="text-icon icon-star"></i><iclass="text-icon icon-star-empty"></i><span class="fav-text"></span></a>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <dl class="list">
+    <dd>
+      <a class="react" href="javascript:;">
+        <div class="more more-weak comment-headline">
+          <span class="stars">
+          <i class="text-icon icon-star"></i>
+          <i class="text-icon icon-star"></i>
+          <i class="text-icon icon-star"></i>
+          <i class="text-icon icon-star"></i>
+          <i class="text-icon icon-star-gray"></i>
+          <em class="star-text">{{ goodData.stersum || 0 }}</em></span>
+          <span class="pull-right">{{ goodData.comments}}人评价</span>
+        </div>
+      </a>
+    </dd>
+  </dl>
+<!--   <dl class="list">
+    <dd>
+      <dl>
+        <dt gaevent="imt/deal/bizinfo">商家信息</dt>
+
+        <dd class="dd-padding">
+          <div class="merchant">
+            <div class="biz-detail">
+              <a gaevent="imt/detail/merchant" class="react" href="http://i.meituan.com/poi/6150373">
+                <h5 class="title single-line"> 杨梅人家</h5>
+
+                <div class="address single-line">番禺区大石礼村低围商业街15号（地铁3号线大石站C出口往南京市100米）</div>
+              </a>
+            </div>
+            <div class="biz-call">
+              <a gaevent="imt/detail/bizPhone" data-com="phonecall" class="react phone" href="javascript:void(0);" data-tele="020-39936363"><i class="text-icon">✆</i></a>
+            </div>
+          </div>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+ -->
+  <dl id="deal-details" class="list">
+    <dt>商家信息</dt>
+    <dd>
+      <dl>
+        <dd class="detail-group" ng-repeat='attr in goodData.attrs'>
+          <span class="left">{{attr.name}}</span>
+          <span class="right">{{attr.value}}</span>
+        </dd>
+      </dl>
+    </dd>
+
+<!--     <dd class="db">
+      <a class="react" id="deal_more" gaevent="imt/deal/more" href="http://i.meituan.com/deal/details/26878222" data-stid="360408083020086528_c0_e7f984116f92b91b289c55cf2c931d45d_b2">
+        <div class="more">查看图文详情</div>
+      </a>
+    </dd>
+ -->
+    <dt>商品详情</dt>
+    <dd>
+      <div class="good-details" ng-bind-html="detail"></div>
+    </dd>
+  </dl>
+
+  <div class='image-details'><p>图片详情</p></div>
+  <div ng-repeat= "image in images">
+    <img style="width: 100%;" src={{image}}>
+  </div>
+
+ </div>
+
+<div class="show-cart-info">
+  <div class="c-back">
+    <a href="javascript:history.back()">返回</a>
+  </div>
+  <div class="c-left">
+    <div class="c-price">
+      <span class="em"><span id="lblPriceText">价格</span>：<span class="im">￥{{goodData.nowprice}}</span></span>
+    </div>
+  </div>
+  <div class="c-right">
+    <a href="javascript:;" class="btn_buy" ng-click="addToCart()">加入购物车</a>
+  </div>
+</div>

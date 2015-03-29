@@ -1,0 +1,37 @@
+<div class="WX_search">
+  <form action="###" class="WX_search_frm" onsubmit="return false;">
+      <input type="search" class="WX_search_txt" id="topSearchTxt" placeholder="搜索全部商品">
+      <!-- <a class="WX_search_clear" href="javascript:;" id="topSearchClear">x</a> -->
+  </form>
+  <div class="WX_me">
+    <div>
+      <a ng-click="showSearchResult()" id="topSearchbtn" class="WX_search_btn_blue">搜索</a>
+      <!-- <a href="javascript:" id="topSearchCbtn" class="WX_search_btn">取消</a> -->
+    </div>
+  </div>
+</div>
+<div class="wx_wrap">
+  <div id="left_sroll" class='scroll'>
+    <ul class="category1" id="allcontent">
+      <li init-slider ng-repeat='category in rootCategories' id="category-{{category.cid}}" ng-click="showChildCategory($event, category)">{{category.name}}</li>
+      <!-- <li init-slider ng-repeat='category in rootCategories' data-cid="{{category.cid}}">{{category.name}}</li> -->
+    </ul>
+  </div>
+  <div id="right_sroll" class='scroll'>
+    <div>
+      <a class="guanggao"  target=""><img class='head-image' src="http://img5.paipaiimg.com/f34c109e/acpc-5476CD9D-0000000100000001557D000000053F2C.1.jpg"></a>
+
+      <dl class="category2" id="category2">
+        <div ng-repeat='subCategory in subCategories'>
+          <dt>{{subCategory.name}}</dt>
+            <dd>
+              <a ng-repeat='item in subCategory.items' href="{{getCategoryLink(item)}}">
+                <img ng-src="{{item.image}}" alt="{{item.name}}">
+                <span class='tit'>{{item.name}}</span>
+              </a>
+            </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

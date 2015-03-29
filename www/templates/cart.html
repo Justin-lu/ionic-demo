@@ -1,0 +1,129 @@
+<div class="container" id='cart_details'>
+  <div id="content" class="content">
+    <ul id="cart-body" class="mytable-cart">
+      <p class='blank-cart-tip'>您的购物车空空如也!</p>
+      <li class="odd" ng-repeat='cartItem in vm.cartItems'>
+        <ul>
+          <li>
+            <div class="pic">
+              <a href=''><img class="thu" ng-src="{{cartItem.url}}"></a>
+            </div>
+            <div class="tlcon tl-only">
+              <div class="it name">{{cartItem.title}}</div>
+              <div class="it num">
+                {{cartItem.nowprice}} * {{cartItem.quantity}} = {{cartItem.quantity * cartItem.nowprice |number:2}}
+              </div>
+              <div class="it ac">
+                <div class="pro-buy-left">
+                  <div class="acnum pro-num" id="cart_num360527">
+                    <a class="pro-num-btn" href="javascript:;" ng-click="vm.decrease($index)">-</a>
+                    <input type="text" class="pro-num-val" id="pro-num-val" maxlength="4" readonly="readonly" ng-model='cartItem.quantity'>
+                    <a class="pro-num-btn" href="javascript:;" ng-click="vm.add($index)">+</a>
+                  </div>
+                </div>
+                <div class="btn_cancle" ng-click="vm.removeGoodFromCart(cartItem)">取消</div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="cart-info">
+    <div class="c-left">
+      <div class="c-price">
+        <div class="cnt">
+          <span class="em">共计 <span class="im"><span id="LblMoneyGoods">￥{{vm.totalPrice() | number:2}}</span></span></span>
+          <span class="em">满<span class="im num">38.00</span>免运费</span>
+        </div>
+        <div class="cn">
+          <span id="LblChaMoney">自提免运费，已满<span class="im">38.00</span>元，免运费</span>
+        </div>
+      </div>
+    </div>
+    <div class="c-right">
+      <a href="javascript:void(0);" class="btn_buy" ng-click="vm.summary()">去结算</a>
+    </div>
+  </div>
+</div>
+
+<div id="clearing" class="hidden">
+  <div class='clear-margin'></div>
+
+  <div class='info-details'>
+    <div class='info'>
+      <p>收货信息</p>
+      <div class="address-cart">
+        <div class="address_list" id="addressList">
+          <div class="address">
+            <ul ng-class="{default_options: address.isdefault == 1}" ng-repeat="address in vm.addresses" ng-click="vm.changeAddress($index)" id='address_{{address.adid}}'>
+              <li>{{address.province}}{{address.city}}{{address.area}}{{address.shipaddress}}</li>
+              <li><strong>{{address.receive}}</strong> {{address.mobile}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='info'>
+      <p>支付信息</p>
+      <ul class='info-list'>
+        <li class='botton-item' ng-repeat= "payType in vm.payTypes">
+          <button  class='btn btn-clearing' init-slider id='pay_type_{{payType.pid}}' ng-click="vm.selectPayType($index)">{{payType.payway}}</button>
+        </li>
+      </ul>
+    </div>
+
+<!--     <div class='info'>
+      <p>配送门店</p>
+      <ul class='info-list'>
+        <li class='list-item'>
+          <select>
+            <option value="zhujiangxincheng">珠江新城</option>
+            <option value="huangpucun">黄埔村</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+ -->
+    <div class='info'>
+      <p>配送物流</p>
+      <ul class='info-list'>
+        <li class='botton-item' ng-repeat= "sendType in vm.sendTypes">
+          <button  class='btn btn-clearing' init-slider id='send_type_{{sendType.sid}}' ng-click="vm.selectSendType($index)">{{sendType.sendway}} ￥{{sendType.fee}}</button>
+        </li>
+      </ul>
+    </div>
+
+<!--     <div class='info'>
+      <p>自取时间</p>
+      <ul class='info-list'>
+        <li class='botton-item'>
+          <select>
+            <option value="time1">2014年12月22日</option>
+            <option value="time2">2014年12月23日</option>
+            <option value="time2">2014年12月24日</option>
+            <option value="time2">2014年12月25日</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+ -->
+    <div class='show-cart-info-div'></div>
+  </div>
+
+  <div class="show-cart-info">
+    <div class="c-left">
+      <div class="s-price">
+        <span><span>商品</span>：<span>￥{{vm.totalPrice() | number:2}}</span></span>
+        <span><span>运费</span>：<span>￥{{vm.currentSendType.fee | number:2}}</span></span>
+      </div>
+      <div class="s-price">
+        <span><span>应付</span>：<span>￥{{vm.totalPrice() | number:2}} + ￥{{vm.currentSendType.fee | number:2}} =</span><span class="price-summary">￥{{vm.summaryPrice() | number:2}}</span></span>
+      </div>
+    </div>
+    <div class="c-right">
+      <a href="javascript:;" class="btn_buy" ng-click="vm.generateOrder()">确定提交</a>
+    </div>
+  </div>
+</div>

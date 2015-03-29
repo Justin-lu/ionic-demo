@@ -1,0 +1,15 @@
+<div class="address_wrap">
+    <div class="address_list" id="addressList">
+        <div class="address">
+            <ul ng-class="{default_options: address.isdefault == 1}" ng-repeat="address in addresses">
+                <li>{{address.province}}{{address.city}}{{address.area}}{{address.shipaddress}}</li>
+                <li><strong>{{address.receive}}</strong> {{address.mobile}}</li>
+                <li class="edit"><a ng-click="editAddress(address)">编辑</a></li>
+                <li class="delete"><a ng-click="deleteAddress(address)">删除</a></li>
+            </ul>
+        </div>
+        <div class="address_list_link">
+            <a ng-click="newAddress()" class="item item_new" id="new">新增收货地址</a>
+        </div>
+    </div>
+</div>

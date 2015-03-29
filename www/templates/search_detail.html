@@ -1,0 +1,85 @@
+<div class="hd_bar fixed in" id="J_bar1">
+  <form action="###" class="hd_search_frm hd_search_frm_focus" onsubmit="return false;" id="searchForm">
+    <input type="search" class="hd_search_txt hd_search_txt_null" id="topSearchTxt" autocomplete="off" placeholder="搜索全部商品" ng-model='keyword'>
+    <a class="hd_search_clear" href="javascript:;" id="searchClearBtn">x</a>
+  </form>
+  <!--div class="hd_search_tit hide" id="resFilterTipBlock"></div-->
+  <div class="hd_me">
+    <a ng-click='showSearchResult()' id="searchBtn" class="WX_search_btn_blue">搜索</a>
+    <a href="javascript:" id="cancelBtn" class="hd_search_btn hide">取消</a>
+  </div>
+</div>
+
+<div class="wx_wrap">
+  <div id="searchResBlock" class="">
+    <div class="sf_layer_wrap" id="filterBlock">
+      <div class="sf_layer">
+        <div class="sf_layer_title">
+          <div class="left">
+            <input type="button" class="sf_btn_gray" id="filterCBtn" value="取消">
+            <input type="button" class="s_back_btn hide" id="filterBBtn" value="&nbsp;">
+          </div>
+          <div class="tit">
+            筛选
+          </div>
+          <div class="right">
+            <input type="button" class="sf_btn_primary" id="filterSureBtn" value="确认">
+          </div>
+        </div>
+        <div class="sf_layer_sub_title hide" id="filterSelBlock">
+          <strong>已选择：</strong><span id="filterSelTips" class="words_10" style="max-width: 830px;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="mod_fixed_wrapper mod_filter_fixed in" id="sortBlock">
+      <!-- mod_filter_fixed -->
+      <div class="mod_filter">
+        <div class="mod_filter_inner">
+          <a href="javascript:" cg="0-2-1" class="no_icon select" sort-type="default">默认</a>
+          <a href="javascript:" cg="0-2-2" class="" sort-type="price" mark="1">价格<i class="icon_sort" cg="0-2-2"></i></a><!-- filter_desc -->
+          <a href="javascript:" cg="0-2-4" class="state_switch" sort-type="sale">销量<i class="icon_sort_single" cg="0-2-4"></i></a>
+          <a href="javascript:" cg="0-2-5" class="state_switch" sort-type="comment">评价数<i class="icon_sort_single" cg="0-2-5"></i></a>
+          <a href="javascript:" cg="0-2-7" class="switch" sort-type="listmode"><i class="icon_switch" cg="0-2-7"></i></a><!-- switch_list -->
+        </div>
+      </div>
+    </div>
+    <div class="mod_itemlist_small mod_search_rec hide" id="brandAdv">
+    </div>
+    <div class="s_null" id="sNull01">
+      <h5>抱歉，没有找到符合条件的商品。</h5>
+    </div>
+<!--     <div class="s_null hide" id="sNull02">
+      <h5>抱歉，没有找到符合条件的商品。</h5>
+      <p>
+        我们为您去除了筛选条件，得到以下搜索结果。
+      </p>
+    </div>
+ -->    <div class="s_found" id="sFound">
+      <p class="found_tip_2">
+        </span>找到相关商品<span id="totResult">{{total}}</span> 件。<span class="location" id="addName">配送至：xx</span>
+      </p>
+    </div>
+    <div id="serach-scroll">
+      <div class="scroller">
+          <div class="mod_itemlist_small" id="itemList">
+            <div class="hproduct" ng-repeat="good in goodList" init-slider>
+              <a href="{{good.link}}">
+                <p class="cover">
+                  <img ng-src="{{good.url}}">
+                </p>
+                <p class="fn">{{good.title}}</p>
+                <p class="prices"><strong><em>{{good.nowprice}}</em></strong></p>
+                <p class="sku" cg="0-3-1">
+                  <span class="comment_num"><span>{{good.comments}}</span>人评价</span><span class="comment_rate">好评率{{good.starsum}}</span><span>已买{{good.sales}}件</span>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="wx_loading2" id="loadingLogo">
+            <i></i>
+            <p class="hide" id="noMoreTips">已无更多商品，您可以换一个关键字搜一下哦~</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
